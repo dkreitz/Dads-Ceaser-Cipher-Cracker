@@ -5,6 +5,7 @@
 
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
+
 def main():
   # This text can be copy/pasted from http://invpy.com/vigenereCipher.py
   myMessage = (
@@ -47,6 +48,9 @@ def main():
 
   print('%sed message:' % (myMode.title()))
   print(translated)
+  #pyperclip.copy(translated)
+  #print()
+  #print('Message copied to clipboard.')
 
 
 def encryptMessage(key, message):
@@ -82,9 +86,10 @@ def translateMessage(key, message, mode):
       keyIndex += 1  # move to the next letter in the key
       if keyIndex == len(key):
         keyIndex = 0
-      else:
-        # The symbol was not in LETTERS, so add it to translated as is.
-        translated.append(symbol)
+
+    else:
+      # The symbol was not in LETTERS, so add it to translated as is.
+      translated.append(symbol)
 
   return ''.join(translated)
 
